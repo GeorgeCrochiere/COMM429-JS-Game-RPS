@@ -1,0 +1,43 @@
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    height: 100vh;
+}
+
+body {
+    display: grid;
+    grid-template:
+        "header header" max-content
+        "user ai" max-content
+        "score score" max-content
+        "blank blank" 1fr
+        "footer footer" max-content / 1fr 1fr;
+    min-height: 100%;
+}
+
+header {
+    grid-area: header;
+}
+
+header>h1 {
+    text-align: center;
+}
+
+section.select {}
+
+section.userSelect {
+    grid-area: user;
+}
+
+section.aiSelect {
+    grid-area: ai;
+}
+
+section.blank {
+    grid-area: blank;
+}
+
+footer {
+    grid-area: footer;
+}
