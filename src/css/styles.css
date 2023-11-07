@@ -1,3 +1,14 @@
+:root {
+    --button-group-background: #a7a7a7;
+    --button-border-color: #555555;
+    --player-back-color: #e5e5e5;
+    --border-group-color: #323232;
+    --button-group-border: 2px solid var(--border-group-color);
+    --button-border: 2px dashed var(--button-border-color);
+}
+
+/* Main Components of Page */
+
 html,
 body {
     padding: 0px;
@@ -8,13 +19,15 @@ body {
 body {
     display: grid;
     grid-template:
-        "header header" max-content
-        "user ai" max-content
-        "score score" max-content
-        "blank blank" 1fr
-        "footer footer" max-content / 1fr 1fr;
+        "header" max-content
+        "players" max-content
+        "score" max-content
+        "blank" 1fr
+        "footer" max-content / 1fr;
     min-height: 100%;
 }
+
+/* Header */
 
 header {
     grid-area: header;
@@ -24,7 +37,48 @@ header>h1 {
     text-align: center;
 }
 
-section.select {}
+/* Buttons and Section */
+
+section.select>img {
+    display: block;
+}
+
+section.select {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--button-group-background);
+    border-radius: 1rem;
+    border: var(--button-group-border);
+}
+
+section.select button {
+    border-radius: 1rem;
+    margin: 4px;
+    padding: 1.5rem;
+    border: var(--button-border);
+    transition: 0.2s all ease-in-out;
+}
+
+/* Grid Locations */
+
+section.players {
+    grid-area: players;
+    display: grid;
+    grid-template:
+        "userName aiName" max-content
+        "user ai" max-content / 1fr 1fr;
+    justify-items: center;
+    padding-bottom: 2rem;
+}
+
+h2.playerName {
+    grid-area: userName;
+}
+
+h2.aiName {
+    grid-area: aiName;
+}
 
 section.userSelect {
     grid-area: user;
@@ -34,10 +88,33 @@ section.aiSelect {
     grid-area: ai;
 }
 
+.hidden {
+    display: none;
+}
+
 section.blank {
     grid-area: blank;
 }
 
 footer {
     grid-area: footer;
+}
+
+/* Footer */
+
+footer>h3 {
+    padding-left: 3rem;
+    font-size: 1.5rem;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 900px) {
+    section.players {
+        grid-template:
+            "userName" max-content
+            "user" max-content
+            "aiName" max-content
+            "ai" max-content / 1fr;
+    }
 }

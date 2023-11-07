@@ -13,15 +13,20 @@
     <header>
         <h1>Rock, Paper, Scissors!</h1>
     </header>
-    <section class="select userSelect">
-        <button class="userOption" id="user1">Rock!</button>
-        <button class="userOption" id="user2">Paper!</button>
-        <button class="userOption" id="user3">Scissors!</button>
-    </section>
-    <section class="select aiSelect">
-        <button class="aiOption" id="ai1">Rock!</button>
-        <button class="aiOption" id="ai2">Paper!</button>
-        <button class="aiOption" id="ai3">Scissors!</button>
+    <section class="players">
+        <h2 class="playerName">Player</h2>
+        <section class="select userSelect">
+            <button class="userOption" onclick="selectUserOption(1)"><img src="./src/svg/rock.svg"></button>
+            <button class="userOption" onclick="selectUserOption(2)"><img src="./src/svg/paper.svg"></button>
+            <button class="userOption" onclick="selectUserOption(3)"><img src="./src/svg/scissors.svg"></button>
+        </section>
+        <h2 class="aiName">AI</h2>
+        <section class="select aiSelect">
+            <h2 class="hidden" id="aiWaiting">Waiting for AI...</h2>
+            <button disabled="true" class="aiOption" id="ai1"><img src="./src/svg/rock.svg"></button>
+            <button disabled="true" class="aiOption" id="ai2"><img src="./src/svg/paper.svg"></button>
+            <button disabled="true" class="aiOption" id="ai3"><img src="./src/svg/scissors.svg"></button>
+        </section>
     </section>
     <section class="score">
 
