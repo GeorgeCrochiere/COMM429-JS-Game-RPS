@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="./src/css/modnorm.min.css" />
     <link rel="stylesheet" href="./src/css/styles.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -18,22 +20,23 @@
     <section class="players">
         <h2 class="playerName">Player</h2>
         <section class="select userSelect">
-            <button class="userOption" id="user1" onclick="selectUserOption(1)"><img src="./src/svg/rock.svg" alt="Rock!" title="Rock!"></button>
-            <button class="userOption" id="user2" onclick="selectUserOption(2)"><img src="./src/svg/paper.svg" alt="Paper!" title="Paper!"></button>
-            <button class="userOption" id="user3" onclick="selectUserOption(3)"><img src="./src/svg/scissors.svg" alt="Scissors!" title="Scissors!"></button>
+            <button class="userOption" id="user1" onclick="selectUserOption(1)"><img src="./src/svg/rock2.svg" alt="Rock!" title="Rock!"></button>
+            <button class="userOption" id="user2" onclick="selectUserOption(2)"><img src="./src/svg/paper2.svg" alt="Paper!" title="Paper!"></button>
+            <button class="userOption" id="user3" onclick="selectUserOption(3)"><img src="./src/svg/scissors2.svg" alt="Scissors!" title="Scissors!"></button>
         </section>
         <h2 class="aiName">AI</h2>
         <section class="select aiSelect">
-            <button disabled="true" class="aiOption" id="ai1"><img src="./src/svg/rock.svg"></button>
-            <button disabled="true" class="aiOption" id="ai2"><img src="./src/svg/paper.svg"></button>
-            <button disabled="true" class="aiOption" id="ai3"><img src="./src/svg/scissors.svg"></button>
+            <button disabled="true" class="aiOption" id="ai1"><img src="./src/svg/rock2.svg"></button>
+            <button disabled="true" class="aiOption" id="ai2"><img src="./src/svg/paper2.svg"></button>
+            <button disabled="true" class="aiOption" id="ai3"><img src="./src/svg/scissors2.svg"></button>
         </section>
     </section>
     <section class="score">
         <h2><span id="userChoice"></span><span id="logicResult">Play!</span><span id="aiChoice"></span></h2>
-        <h1><i class="material-symbols-outlined win-icon">workspace_premium</i>&emsp;<span id="userScore">0</span> Win(s)</h1>    
-        <h1><i class="material-symbols-outlined tie-icon">unknown_2</i>&emsp;<span id="tieScore">0</span> Tie(s)</h1>
-        <h1><i class="material-symbols-outlined lose-icon">block</i>&emsp;<span id="aiScore">0</span> Lose(s)</h1>
+        <h1><i class="material-symbols-outlined win-icon">workspace_premium</i>&emsp;Wins: <span id="userScore"></span></h1>    
+        <h1><i class="material-symbols-outlined tie-icon">unknown_2</i>&emsp;Ties: <span id="tieScore"></span></h1>
+        <h1><i class="material-symbols-outlined lose-icon">block</i>&emsp;Losses: <span id="aiScore"></span></h1>
+        <button class="reset" id="reset" onclick="reset()"><p>Reset Scores!</p></button>
     </section>
     <section class="blank">
         <!-- This section is intentionally left blank to make the view cleaner. -->

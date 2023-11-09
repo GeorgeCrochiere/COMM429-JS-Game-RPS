@@ -1,3 +1,5 @@
+initSessionStorage();
+
 function selectUserOption(move) {
     let randomAiMove = Math.floor(Math.random() * 3 + 1);
 
@@ -102,5 +104,44 @@ function updateMoveResult(userMove, aiMove) {
 
     let scorePrefix = ["ai", "tie", "user"];
     let scoreAddition = document.getElementById(scorePrefix[turnResult + 1] + "Score");
+
     scoreAddition.innerHTML = parseInt(scoreAddition.innerHTML) + 1;
+    updateStorage(scorePrefix[turnResult + 1]);
+}
+
+function initSessionStorage() {
+    // Load/Get data
+    let aiStore = sessionStorage.getItem("ai");
+    if (aiStore === null) {
+        sessionStorage.setItem("ai", 0);
+        aiStore = sessionStorage.getItem("ai");
+    }
+
+    let userStore = sessionStorage.getItem("user");
+    if (userStore === null) {
+        sessionStorage.setItem("user", 0);
+        userStore = sessionStorage.getItem("user");
+    }
+
+    let tieStore = sessionStorage.getItem("tie");
+    if (tieStore === null) {
+        sessionStorage.setItem("tie", 0);
+        tieStore = sessionStorage.getItem("tie");
+    }
+
+    // Set initial
+    document.getElementById("aiScore").innerHTML = parseInt(aiStore);
+    document.getElementById("userScore").innerHTML = parseInt(userStore);
+    document.getElementById("tieScore").innerHTML = parseInt(tieStore);
+}
+
+function updateStorage(storage) {
+    sessionStorage.setItem(storage, parseInt(sessionStorage.getItem(storage)) + 1);
+}
+
+function reset() {
+    sessionStorage.setItem("tie", 0);
+    sessionStorage.setItem("ai", 0);
+    sessionStorage.setItem("user", 0);
+    initSessionStorage();
 }

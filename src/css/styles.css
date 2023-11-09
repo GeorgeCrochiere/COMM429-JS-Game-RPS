@@ -9,8 +9,10 @@
     --win-color: #FFD700;
     --lose-color: #FF0000;
     --tie-color: #16451c;
+    --light-green: #25db2e;
     --button-group-border: 2px solid var(--border-group-color);
     --button-border: 2px dashed var(--button-border-color);
+    --icon-border: 2px solid aliceblue;
 }
 
 /* Main Components of Page */
@@ -20,6 +22,7 @@ body {
     padding: 0px;
     margin: 0px;
     height: 100vh;
+    font-family: 'Pixelify Sans', sans-serif;
 }
 
 body {
@@ -31,6 +34,13 @@ body {
         "blank" 1fr
         "footer" max-content / 1fr;
     min-height: 100%;
+    background-color: var(--border-group-color);
+}
+
+h1,
+h2,
+h3 {
+    color: aliceblue;
 }
 
 /* Header */
@@ -41,11 +51,13 @@ header {
 
 header>h1 {
     text-align: center;
+    color: var(--light-green);
 }
 
 /* Buttons and Section */
 
-section.select>img {
+section.select>button>img {
+    max-width: 10rem;
     display: block;
 }
 
@@ -77,6 +89,12 @@ section.score {
     text-align: center;
 }
 
+section.score>h1>i {
+    border: var(--icon-border);
+    border-radius: 4px;
+    background-color: var(--button-group-background)
+}
+
 section.score>h1>i.win-icon {
     color: var(--win-color);
 }
@@ -87,6 +105,10 @@ section.score>h1>i.lose-icon {
 
 section.score>h1>i.tie-icon {
     color: var(--tie-color);
+}
+
+section.score>button>p {
+    margin: 1rem 2rem;
 }
 
 /* Grid Locations */
