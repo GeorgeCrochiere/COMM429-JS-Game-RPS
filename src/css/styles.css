@@ -137,10 +137,6 @@ footer {
     grid-area: footer;
 }
 
-hr {
-    width: 50%;
-}
-
 /* Footer */
 
 footer>h3 {

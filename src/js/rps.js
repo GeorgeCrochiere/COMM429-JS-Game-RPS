@@ -1,10 +1,9 @@
 function selectUserOption(move) {
     let randomAiMove = Math.floor(Math.random() * 3 + 1);
-    // Results: [-2, -1, 0, 1] = [Error, AI Win, Tie, User Win]
-    let turnResult = rpsLogic(move, randomAiMove);
 
     toggleUserInput(true);
     setMoves(randomAiMove, move);
+    updateMoveResult(move, randomAiMove);
     setTimeout(() => {
         setMoves(randomAiMove, move);
         toggleUserInput(false);
@@ -85,4 +84,23 @@ function rpsLogic(userMove, aiMove) {
             console.log("Error: Invalid option found");
             return -2;
     }
+}
+
+function updateMoveResult(userMove, aiMove) {
+    // Results: [-2, -1, 0, 1] = [Error, AI Win, Tie, User Win]
+    let turnResult = rpsLogic(userMove, aiMove);
+    let userText = document.getElementById('userChoice');
+    let aiText = document.getElementById('aiChoice');
+    let resultText = document.getElementById('logicResult');
+
+    let items = ["Rock", "Paper", "Scissors"];
+    let resultItems = [" does not beat ", " ties with ", " beats "];
+
+    userText.innerText = items[userMove - 1];
+    aiText.innerText = items[aiMove - 1].toLowerCase() + "! Play again!";
+    resultText.innerHTML = resultItems[turnResult + 1];
+
+    let scorePrefix = ["ai", "tie", "user"];
+    let scoreAddition = document.getElementById(scorePrefix[turnResult + 1] + "Score");
+    scoreAddition.innerHTML = parseInt(scoreAddition.innerHTML) + 1;
 }
