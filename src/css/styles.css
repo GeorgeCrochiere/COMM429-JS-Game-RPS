@@ -3,6 +3,12 @@
     --button-border-color: #555555;
     --player-back-color: #e5e5e5;
     --border-group-color: #323232;
+    --button-selected-paper: #c13d3d;
+    --button-selected-rock: #0068ca;
+    --button-selected-scissors: #d5e40d;
+    --win-color: #FFD700;
+    --lose-color: #FF0000;
+    --tie-color: #16451c;
     --button-group-border: 2px solid var(--border-group-color);
     --button-border: 2px dashed var(--button-border-color);
 }
@@ -47,6 +53,7 @@ section.select {
     display: flex;
     justify-content: center;
     padding: 2rem;
+    width: minmax(1fr 400px);
     background-color: var(--button-group-background);
     border-radius: 1rem;
     border: var(--button-group-border);
@@ -58,6 +65,28 @@ section.select button {
     padding: 1.5rem;
     border: var(--button-border);
     transition: 0.2s all ease-in-out;
+}
+
+section.select h2 {
+    width: 100%;
+}
+
+/* Score Keeping */
+
+section.score {
+    text-align: center;
+}
+
+section.score>h1>i.win-icon {
+    color: var(--win-color);
+}
+
+section.score>h1>i.lose-icon {
+    color: var(--lose-color);
+}
+
+section.score>h1>i.tie-icon {
+    color: var(--tie-color);
 }
 
 /* Grid Locations */
@@ -88,8 +117,16 @@ section.aiSelect {
     grid-area: ai;
 }
 
-.hidden {
-    display: none;
+.selectedButtonRock {
+    background-color: var(--button-selected-rock);
+}
+
+.selectedButtonPaper {
+    background-color: var(--button-selected-paper);
+}
+
+.selectedButtonScissors {
+    background-color: var(--button-selected-scissors);
 }
 
 section.blank {
@@ -98,6 +135,10 @@ section.blank {
 
 footer {
     grid-area: footer;
+}
+
+hr {
+    width: 50%;
 }
 
 /* Footer */
