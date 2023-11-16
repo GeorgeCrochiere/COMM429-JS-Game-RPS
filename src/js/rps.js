@@ -143,5 +143,8 @@ function reset() {
     sessionStorage.setItem("tie", 0);
     sessionStorage.setItem("ai", 0);
     sessionStorage.setItem("user", 0);
+    document.getElementById("userChoice").innerText = "";
+    document.getElementById("logicResult").innerText = "Play!";
+    document.getElementById("aiChoice").innerText = "";
     initSessionStorage();
 }
