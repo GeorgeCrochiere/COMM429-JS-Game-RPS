@@ -89,6 +89,10 @@ section.score {
     text-align: center;
 }
 
+section.score h1 {
+    font-family: 'Mate', serif;
+}
+
 section.score>h1>i {
     border: var(--icon-border);
     border-radius: 4px;
