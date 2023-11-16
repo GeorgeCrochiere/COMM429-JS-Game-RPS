@@ -151,6 +151,10 @@ section.aiSelect {
     background-color: var(--button-selected-scissors);
 }
 
+.dataChange {
+    color: var(--light-green);
+}
+
 section.blank {
     grid-area: blank;
 }

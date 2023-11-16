@@ -5,11 +5,14 @@ function selectUserOption(move) {
 
     toggleUserInput(true);
     setMoves(randomAiMove, move);
-    updateMoveResult(move, randomAiMove);
+    updateMoveResult(move, randomAiMove, 0);
     setTimeout(() => {
         setMoves(randomAiMove, move);
-        toggleUserInput(false);
     }, 1500);
+    setTimeout(() => {
+        toggleUserInput(false);
+        updateMoveResult(move, randomAiMove, 1);
+    }, 1800);
 }
 
 function toggleUserInput(status) {
@@ -88,25 +91,34 @@ function rpsLogic(userMove, aiMove) {
     }
 }
 
-function updateMoveResult(userMove, aiMove) {
+function updateMoveResult(userMove, aiMove, stage) {
     // Results: [-2, -1, 0, 1] = [Error, AI Win, Tie, User Win]
     let turnResult = rpsLogic(userMove, aiMove);
-    let userText = document.getElementById('userChoice');
-    let aiText = document.getElementById('aiChoice');
-    let resultText = document.getElementById('logicResult');
 
-    let items = ["Rock", "Paper", "Scissors"];
-    let resultItems = [" does not beat ", " ties with ", " beats "];
+    if (stage === 0) {
+        let userText = document.getElementById('userChoice');
+        let aiText = document.getElementById('aiChoice');
+        let resultText = document.getElementById('logicResult');
 
-    userText.innerText = items[userMove - 1];
-    aiText.innerText = items[aiMove - 1].toLowerCase() + "! Play again!";
-    resultText.innerHTML = resultItems[turnResult + 1];
+        let items = ["Rock", "Paper", "Scissors"];
+        let resultItems = [" does not beat ", " ties with ", " beats "];
 
-    let scorePrefix = ["ai", "tie", "user"];
-    let scoreAddition = document.getElementById(scorePrefix[turnResult + 1] + "Score");
+        userText.innerText = items[userMove - 1];
+        aiText.innerText = items[aiMove - 1].toLowerCase() + "! Play again!";
+        resultText.innerHTML = resultItems[turnResult + 1];
 
-    scoreAddition.innerHTML = parseInt(scoreAddition.innerHTML) + 1;
-    updateStorage(scorePrefix[turnResult + 1]);
+        let scorePrefix = ["ai", "tie", "user"];
+        let scoreAddition = document.getElementById(scorePrefix[turnResult + 1] + "Score");
+
+        scoreAddition.innerHTML = parseInt(scoreAddition.innerHTML) + 1;
+        scoreAddition.classList.toggle("dataChange");
+        updateStorage(scorePrefix[turnResult + 1]);
+    } else {
+        let scorePrefix = ["ai", "tie", "user"];
+        let scoreAddition = document.getElementById(scorePrefix[turnResult + 1] + "Score");
+        scoreAddition.classList.toggle("dataChange");
+    }
+
 }
 
 function initSessionStorage() {
